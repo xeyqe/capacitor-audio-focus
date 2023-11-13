@@ -17,7 +17,6 @@
     "@capacitor/camera": "latest",
     "@capacitor/splash-screen": "latest",
     "capacitor-audio-focus": "file:..",
-    "@capacitor/ios": "^5.0.0",
     "@capacitor/android": "^5.0.0"
   },
   "devDependencies": {
