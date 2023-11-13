@@ -9,14 +9,54 @@ import com.getcapacitor.annotation.CapacitorPlugin;
 @CapacitorPlugin(name = "AudioFocus")
 public class AudioFocusPlugin extends Plugin {
 
-    private AudioFocus implementation = new AudioFocus();
+    private AudioFocus implementation;
+    @Override
+    public void load() {
+        implementation = new AudioFocus(getContext());
+    }
 
     @PluginMethod
-    public void echo(PluginCall call) {
-        String value = call.getString("value");
+    public void requestFocus(PluginCall call) {
 
-        JSObject ret = new JSObject();
-        ret.put("value", implementation.echo(value));
-        call.resolve(ret);
+        AudioFocusResultCallback callback = new AudioFocusResultCallback() {
+            @Override
+            public void onDone() {
+                call.resolve();
+            }
+
+            @Override
+            public void onError(String errorMessage) {
+                call.reject(errorMessage);
+            }
+
+            @Override
+            public void onAudioFocusChange(JSObject obj) {
+                notifyListeners("audioFocusChangeEvent", obj);
+            }
+        };
+
+        implementation.requestFocus(callback);
+    }
+
+    @PluginMethod
+    public void abandonFocus(PluginCall call) {
+        AudioFocusResultCallback callback = new AudioFocusResultCallback() {
+            @Override
+            public void onDone() {
+                call.resolve();
+            }
+
+            @Override
+            public void onError(String errorMessage) {
+                call.reject(errorMessage);
+            }
+
+            @Override
+            public void onAudioFocusChange(JSObject obj) {
+                notifyListeners("audioFocusChangeEvent", obj);
+            }
+        };
+
+        implementation.abandonFocus(callback);
     }
 }
