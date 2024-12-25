@@ -15,7 +15,7 @@ npx cap sync
 
 * [`requestFocus()`](#requestfocus)
 * [`abandonFocus()`](#abandonfocus)
-* [`addListener('audioFocusChangeEvent', ...)`](#addlisteneraudiofocuschangeevent)
+* [`addListener('audioFocusChangeEvent', ...)`](#addlisteneraudiofocuschangeevent-)
 * [Interfaces](#interfaces)
 
 </docgen-index>
@@ -44,7 +44,7 @@ abandonFocus() => Promise<void>
 ### addListener('audioFocusChangeEvent', ...)
 
 ```typescript
-addListener(eventName: 'audioFocusChangeEvent', listenerFunc: (obj: { type: 'AUDIOFOCUS_GAIN' | 'AUDIOFOCUS_LOSS' | 'AUDIOFOCUS_LOSS_TRANSIENT' | 'AUDIOFOCUS_LOSS_TRANSIENT_CAN_DUCK'; }) => void) => Promise<PluginListenerHandle> & PluginListenerHandle
+addListener(eventName: 'audioFocusChangeEvent', listenerFunc: (obj: { type: 'AUDIOFOCUS_GAIN' | 'AUDIOFOCUS_LOSS' | 'AUDIOFOCUS_LOSS_TRANSIENT' | 'AUDIOFOCUS_LOSS_TRANSIENT_CAN_DUCK'; }) => void) => Promise<PluginListenerHandle>
 ```
 
 | Param              | Type                                                                                                                                                    |
@@ -52,7 +52,7 @@ addListener(eventName: 'audioFocusChangeEvent', listenerFunc: (obj: { type: 'AUD
 | **`eventName`**    | <code>'audioFocusChangeEvent'</code>                                                                                                                    |
 | **`listenerFunc`** | <code>(obj: { type: 'AUDIOFOCUS_GAIN' \| 'AUDIOFOCUS_LOSS' \| 'AUDIOFOCUS_LOSS_TRANSIENT' \| 'AUDIOFOCUS_LOSS_TRANSIENT_CAN_DUCK'; }) =&gt; void</code> |
 
-**Returns:** <code>Promise&lt;<a href="#pluginlistenerhandle">PluginListenerHandle</a>&gt; & <a href="#pluginlistenerhandle">PluginListenerHandle</a></code>
+**Returns:** <code>Promise&lt;<a href="#pluginlistenerhandle">PluginListenerHandle</a>&gt;</code>
 
 --------------------
 
