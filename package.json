@@ -1,6 +1,6 @@
 {
   "name": "capacitor-audio-focus",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Android capacitor AudioFocus.",
   "main": "dist/plugin.cjs.js",
   "module": "dist/esm/index.js",
@@ -33,28 +33,28 @@
     "lint": "npm run eslint && npm run prettier -- --check",
     "fmt": "npm run eslint -- --fix && npm run prettier -- --write",
     "eslint": "eslint . --ext ts",
-    "prettier": "prettier \"**/*.{css,html,ts,js,java}\"",
+    "prettier": "prettier \"**/*.{css,html,ts,js,java}\" --plugin=prettier-plugin-java",
     "docgen": "docgen --api AudioFocusPlugin --output-readme README.md --output-json dist/docs.json",
-    "build": "npm run clean && npm run docgen && tsc && rollup -c rollup.config.js",
+    "build": "npm run clean && npm run docgen && tsc && rollup -c rollup.config.mjs",
     "clean": "rimraf ./dist",
     "watch": "tsc --watch",
     "prepublishOnly": "npm run build"
   },
   "devDependencies": {
-    "@capacitor/android": "^6.2.0",
-    "@capacitor/core": "^6.2.0",
+    "@capacitor/android": "^7.0.1",
+    "@capacitor/core": "^7.0.1",
     "@capacitor/docgen": "^0.3.0",
     "@ionic/eslint-config": "^0.4.0",
     "@ionic/prettier-config": "^4.0.0",
-    "eslint": "^9.17.0",
-    "prettier": "~3.4.2",
-    "prettier-plugin-java": "~2.6.5",
+    "eslint": "^8.57.0",
+    "prettier": "^3.5.2",
+    "prettier-plugin-java": "^2.6.7",
     "rimraf": "^6.0.1",
-    "rollup": "^4.29.1",
-    "typescript": "~5.7.2"
+    "rollup": "^4.34.9",
+    "typescript": "~5.8.2"
   },
   "peerDependencies": {
-    "@capacitor/core": "^6.0.0"
+    "@capacitor/core": ">=7.0.0"
   },
   "prettier": "@ionic/prettier-config",
   "eslintConfig": {
