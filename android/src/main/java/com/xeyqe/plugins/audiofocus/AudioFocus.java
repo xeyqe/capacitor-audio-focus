@@ -4,7 +4,6 @@ import android.content.Context;
 import android.media.AudioAttributes;
 import android.media.AudioFocusRequest;
 import android.media.AudioManager;
-
 import com.getcapacitor.JSObject;
 
 public class AudioFocus {
@@ -18,7 +17,7 @@ public class AudioFocus {
     }
 
     public void requestFocus(AudioFocusResultCallback callback) {
-        AudioManager.OnAudioFocusChangeListener listener = focusChange -> {
+        AudioManager.OnAudioFocusChangeListener listener = (focusChange) -> {
             JSObject obj = new JSObject();
             switch (focusChange) {
                 case AudioManager.AUDIOFOCUS_GAIN -> {
@@ -48,15 +47,15 @@ public class AudioFocus {
         };
 
         AudioAttributes playbackAttributes = new AudioAttributes.Builder()
-                .setUsage(AudioAttributes.USAGE_MEDIA)
-                .setContentType(AudioAttributes.CONTENT_TYPE_SPEECH)
-                .build();
+            .setUsage(AudioAttributes.USAGE_MEDIA)
+            .setContentType(AudioAttributes.CONTENT_TYPE_SPEECH)
+            .build();
 
         focusRequest = new AudioFocusRequest.Builder(AudioManager.AUDIOFOCUS_GAIN)
-                .setAudioAttributes(playbackAttributes)
-                .setAcceptsDelayedFocusGain(true)
-                .setOnAudioFocusChangeListener(listener)
-                .build();
+            .setAudioAttributes(playbackAttributes)
+            .setAcceptsDelayedFocusGain(true)
+            .setOnAudioFocusChangeListener(listener)
+            .build();
 
         final int audioFocusRequest = am.requestAudioFocus(focusRequest);
 
