@@ -4,6 +4,8 @@ Android capacitor AudioFocus.
 
 ## Install
 
+Requires Capacitor 8 and Android API 26 or newer.
+
 ```bash
 npm install capacitor-audio-focus
 npx cap sync

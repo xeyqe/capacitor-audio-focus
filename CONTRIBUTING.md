@@ -6,6 +6,16 @@ This guide provides instructions for contributing to this Capacitor plugin.
 
 ### Local Setup
 
+Use Node.js 22.13 or newer, JDK 21, and Android SDK 36. The Gradle wrapper
+provides Gradle 8.14.5. The plugin requires Android API 26 because it uses
+`AudioFocusRequest`.
+
+TypeScript stays on the 6.0 release line until the ESLint TypeScript parser
+supports TypeScript 7.
+
+Docgen uses its bundled TypeScript 4 compiler and a separate
+`tsconfig.docgen.json` to keep generated API types accurate.
+
 1. Fork and clone the repo.
 1. Install the dependencies.
 
@@ -28,6 +38,9 @@ Then, Rollup will bundle the code into a single file at `dist/plugin.js`. This f
 Build and validate the web and native projects.
 
 This is useful to run in CI to verify that the plugin builds for all platforms.
+
+To check the example app after building the plugin, run `npm ci --prefix example`
+and `npm run build --prefix example`.
 
 #### `npm run lint` / `npm run fmt`
 
